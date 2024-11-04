@@ -1,0 +1,70 @@
+/* Enter your custom styles here */
+
+.gameButton {
+    margin: 5px 0; /* Butonlar arasında boşluk */
+    font-weight: bold; /* Kalın yazı tipi */
+    font-size: 1.1em; /* Daha büyük yazı boyutu */
+    border-radius: 8px; /* Yuvarlatılmış köşeler */
+}
+.buttonContainerMargin {
+    margin-top: 20px;
+}
+/* Timer alanının temel stili */
+.timerControl {
+    margin-left: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: green;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #e0f7fa;
+    border: 2px solid #00796b;
+}
+
+/* Kalan süre kritik seviyeye düştüğünde etkinleşir */
+.timerControl.criticalTime {
+    color: red;
+    animation: pulse 1s infinite;
+    background-color: #ffebee;
+    border-color: #c62828;
+}
+
+
+.usernameTimerContainer {
+    margin-bottom: 20px;
+}
+
+.spacingHBox {
+    margin-bottom: 5px; /* İki HBox arasındaki boşluk, istenilen seviyeye göre ayarlanabilir */
+}
+
+/* İsteğe bağlı: Text ve Input alanı arasındaki boşluğu azaltmak için */
+.inputLabel {
+    margin-right: 5px; /* Label ile input/select alanı arasında az bir boşluk */
+}
+
+.usernameText {
+    margin-left: 2px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #000000;
+}
+
+.restartbutton{
+    margin-left: 10px;
+}
+
+
+/* Kritik süre için pulse animasyonu */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}

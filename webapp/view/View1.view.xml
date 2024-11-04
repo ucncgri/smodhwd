@@ -1,0 +1,99 @@
+<mvc:View
+    controllerName="com.smod.ux.customcontrol.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:custom="com.smod.ux.customcontrol.custom"
+    xmlns:core="sap.ui.core"
+>
+    <Page id="page" title="{i18n>title}">
+        <content>
+           
+            <HBox class="usernameTimerContainer" alignItems="Center" justifyContent="Center">
+                
+                
+                    <Text class="usernameLabel" text="Oyuncu:" />
+                    <Text
+                        id="usernameText"
+                        text="{= ${controller>/username} ? ${controller>/username} : 'Kullanıcı Adı' }"
+                        class="usernameText"
+                    />
+                
+                    <VBox id="timerContainer" class="timer-container" visible="false" alignItems="End" justifyContent="End" />
+            </HBox>
+
+  <VBox class="inputContainer" alignItems="Center" justifyContent="Center">
+  
+    <HBox alignItems="Center" class="spacingHBox">
+        <Text id="username" class="inputLabel" text="Oyuncu:" />
+        <Input id="usernameInput" placeholder="Kullanıcı Adı" width="200px" class="inputField"/>
+    </HBox>
+
+  
+    <HBox alignItems="Center" class="spacingHBox">
+        <Text class="inputLabel" text="Zorluk:" />
+        <Select id="difficultySelect" width="200px" class="difficultySelect">
+            <items>
+                <core:Item key="easy" text="Kolay" />
+                <core:Item key="medium" text="Orta" />
+                <core:Item key="hard" text="Zor" />
+            </items>
+        </Select>
+    </HBox>
+</VBox>
+
+
+
+
+
+           
+            <HBox justifyContent="Center" class="buttonContainer buttonContainerMargin" alignItems="Center">
+                <Button
+                    id="startbutton"
+                    text="Başla"
+                    press=".onStartGame"
+                    type="Emphasized"
+                    class="gameButton"
+                />
+                
+                <Button
+                    id="pauseResumeButton"
+                    text="Durdur"
+                    press=".togglePauseResume"
+                    enabled="{= !${controller>/isPaused} }"
+                    type="Accept"
+                    class="gameButton"
+                    visible="false"
+                         
+                />
+                
+                <Button
+                    id="restartbutton"
+                    text="Yeniden Başlat"
+                    press=".onRestartGame"
+                    type="Default"
+                  class="gameButton restartbutton"
+                    visible="false"
+                />
+                  <Button
+        id="historyButton"
+        text="Geçmiş"
+        press=".onShowHistory"
+        type="Default"
+        class="gameButton restartbutton"
+        visible="true"    />
+            </HBox>
+
+          
+            <custom:CardContainer
+                id="cardContainer"
+                click=".onCardClick"
+                visible="false"
+                defaultSpan="XL2 L2 M4 S6"
+            >
+               
+            </custom:CardContainer>
+        </content>
+    </Page>
+</mvc:View>

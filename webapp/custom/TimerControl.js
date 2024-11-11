@@ -38,8 +38,8 @@ sap.ui.define([
                     this._timeElapsed += 1;
                     this.setTimeRemaining(this._duration - this._timeElapsed);
                     
-                    // Eğer kalan süre kritikse, sınıfı değiştir
-                    if (this._duration - this._timeElapsed <= 10) {
+                    
+                    if (this._duration - this._timeElapsed <= 5) {
                         this.addStyleClass("criticalTime");
                     }
 
@@ -70,7 +70,7 @@ sap.ui.define([
             }
         },
 
-        // Zamanı dakikalar ve saniyeler olarak formatla
+        
         formatTime: function(timeInSeconds) {
             const minutes = Math.floor(timeInSeconds / 60);
             const seconds = timeInSeconds % 60;
@@ -84,7 +84,7 @@ sap.ui.define([
             oRM.writeClasses();
             oRM.write(">");
             
-            // Kalan süreyi formatla ve yazdır
+           
             const formattedTime = oControl.formatTime(oControl.getTimeRemaining());
             oRM.writeEscaped("Kalan Süre: " + formattedTime);
             

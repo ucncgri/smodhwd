@@ -1,11 +1,11 @@
-/* Arka Plan Resmi */
+
 .pageBackground {
     background-image: url('https://images.alphacoders.com/603/thumb-1920-603479.png');
     background-size: cover;
     background-position: center;
 }
 
-/* Menü Alanı */
+
 .menuContainer {
     padding: 20px;
     background-color: rgba(255, 255, 255, 0.8);
@@ -16,45 +16,45 @@
     height: 200px;
 }
 
-/* Oyun Bilgisi ve Zamanlayıcı */
+
 .usernameTimerContainer {
     width: 100%;
     justify-content: space-between;
     padding: 10px;
 }
 
-/* Timer Stili */
+
 .timerControl {
     margin-top: 185px;
-    position: fixed; /* Sayfa kaydırıldıkça sabit kalır */
-    top: 20px; /* Sayfanın üst kısmında 20px mesafede */
-    right: 20px; /* Sayfanın sağ kısmında 20px mesafede */
-    z-index: 1000; /* Diğer öğelerin üstünde görünmesini sağlar */
+    position: fixed; 
+    top: 20px; 
+    right: 20px; 
+    z-index: 1000; 
     padding: 12px 15px;
     font-size: 15px;
     font-weight: bold;
-    color: white; /* Yazı rengi beyaz */
-    background-color: #00796b; /* Başlangıç rengi */
-    border: 2px solid #004d40; /* Kenarlık rengi */
-    border-radius: 10px; /* Yuvarlak köşeler */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Gölgelendirme */
+    color: white; 
+    background-color: #00796b; 
+    border: 2px solid #004d40; 
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
     text-align: center;
-    transition: background-color 0.3s ease, color 0.3s ease; /* Arka plan değişiminde animasyon */
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .timerControl.criticalTime {
-    background-color: #ff5722; /* Kritik süre için kırmızı */
+    background-color: #ff5722; 
     color: white;
-    animation: pulse 1s infinite; /* Kritik zaman için animasyon */
+    animation: pulse 1s infinite; 
 }
 
 .timerControl.finished {
-    background-color: #388e3c; /* Bittiğinde yeşil */
+    background-color: #388e3c; 
     color: white;
-    animation: none; /* Animasyon bittiğinde durur */
+    animation: none; 
 }
 
-/* Etiket ve Giriş Alanları */
+
 .inputLabel {
     margin-right: 5px;
 }
@@ -66,7 +66,7 @@
     color: #000;
 }
 
-/* Oyun Butonları */
+
 .buttonContainer {
     margin-top: 15px;
 }
@@ -82,22 +82,22 @@
     margin-left: 10px;
 }
 
-/* Kart Alanı Çerçevesi */
+
 
 .layoutContainer {
-    width: 700px; /* Ekran genişliğine tam uyum sağlamak için */
-    height: 700px; /* Ekranın tamamını kaplamak için */
+    width: 700px; 
+    height: 700px; 
     display: flex;
-    grid-template-rows: 1fr auto; /* Sayfanın üst kısmında kartlar yer alacak, alt kısmında ise diğer öğeler */
+    grid-template-rows: 1fr auto; 
     gap: 10px; }
 
 
 .cardContainerWrapper {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px; /* Kartlar arasındaki mesafe */
+    gap: 10px; 
 }
-/* Kritik süre için pulse animasyonu */
+
 @keyframes pulse {
     0% { transform: scale(1); }
     50% { transform: scale(1.1); }

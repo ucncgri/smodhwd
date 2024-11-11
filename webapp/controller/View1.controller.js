@@ -27,7 +27,7 @@ sap.ui.define([
         },
         
         startTimer: function() {
-            this.oTimer.start(30); // 60 saniye örnek başlangıç süresi
+            this.oTimer.start(15); 
         },
         
         onTimeOut: function() {
@@ -42,7 +42,7 @@ sap.ui.define([
             
             const oCardContainer = this.getView().byId("cardContainer");
             oCardContainer.getCards().forEach(card => {
-                card.setEnabled(false); // Tüm kartları tıklanamaz yap
+                card.setEnabled(false); 
             });
             const oView = this.getView();
             
@@ -84,7 +84,7 @@ sap.ui.define([
 ,        
      
         onRestartGame: function () {
-            this.oTimer.removeStyleClass("criticalTime"); // Kritik zaman stilini temizle
+            this.oTimer.removeStyleClass("criticalTime"); 
             this.oTimer.addStyleClass("defaultTime");
             this.onStartGame(); 
            
@@ -181,11 +181,11 @@ sap.ui.define([
      
           
     karilmisKartlar.forEach((oCard, index) => {
-        // Kartı ekledikten sonra animasyonla görünür yapma
+      
         setTimeout(() => {
-            oCard.addStyleClass("show");  // CSS animasyonunu tetikle
+            oCard.addStyleClass("show");  
             oCardContainer.addAggregation("cards", oCard);
-        }, index * 250); // Her kart için küçük bir gecikme ekle
+        }, index * 250); 
     });
         
     oCardContainer.setDefaultSpan(defaultSpan);
@@ -264,7 +264,7 @@ sap.ui.define([
                                 });
                             }, 1000);
                             let previousScores = JSON.parse(localStorage.getItem(`scores_${username}`)) || []; 
-                            previousScores.push(score); // Yeni skoru ekle
+                            previousScores.push(score); 
                             localStorage.setItem(`scores_${username}`, JSON.stringify(previousScores));
                             const ascore = localStorage.getItem(`score_${username}`);
                             console.log(ascore);
@@ -279,14 +279,14 @@ sap.ui.define([
                             if (this.firstCard) {
                                   
                 setTimeout(() => {
-                    this.firstCard.$().removeClass("flipped"); // Kartı kapat
+                    this.firstCard.$().removeClass("flipped");
                 }, 100)
                    
                 
                 }
                 
                 setTimeout(() => {
-                    clickedItem.$().removeClass("flipped"); // Kartı kapat
+                    clickedItem.$().removeClass("flipped");
                 }, 300)
                             if (this.firstCard) {
                             this.firstCard.setBusy(false);}

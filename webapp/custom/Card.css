@@ -1,7 +1,7 @@
 .smod-ux-card {
 
    
-    /* Animasyon uygulanacak */
+   
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
     width: 200px;
@@ -23,14 +23,14 @@
     border-top-right-radius: 10px; 
 }
 .smod-ux-card:hover {
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2); /* Daha belirgin gölge */
-    transform: translateY(-5px); /* Yüzer efekt ekle */
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2); 
+    transform: translateY(-5px); 
     
 }
 .smod-ux-card-active {
     cursor: pointer;
 }
-/* busy state için varsayılan animasyonu gizle */
+
 .sapUiBusyIndicator {
     display: none !important;
 }
@@ -55,8 +55,8 @@
     flex-wrap: wrap;
     column-gap: 10px;
     row-gap: 0px;
-    justify-content: center; /* Kartları yatay olarak ortalar */
-    align-items: center; /* Kartları dikey olarak ortalar */
+    justify-content: center; 
+    align-items: center; 
 
    
     background-size: cover;
@@ -83,16 +83,16 @@
    
     margin-top: 30px;
     margin-left: 18px;
-  /* Sadece sol üst köşe yuvarlatılır */
+  
 }
 
 .smod-ux-card-title {
     position: absolute;
-    bottom: 10px; /* Sağ alt köşeye yerleştirir */
+    bottom: 10px; 
     left: 20px;
     font-size: 10px;
-    font-weight: bold; /* Yazıyı kalın yapar */
-    font-style: italic; /* Yazıyı italik yapar */
+    font-weight: bold;
+    font-style: italic; 
     color: rgb(4, 3, 3);
    
     padding: 5px 5px;
@@ -115,7 +115,7 @@
     display: flex;
     flex-direction: column;
     border-top-right-radius: 10px; 
-    background-color: #f0f0f0; /* Varsayılan açık gri arka plan */
+    background-color: #f0f0f0; 
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 .smod-ux-card-back {
@@ -128,7 +128,7 @@
     display: flex;
     flex-direction: column;
 background-image: url('https://i.pinimg.com/originals/b3/1c/23/b31c2395c69a5083adb4b77e17625e2d.png');
-    background-color: #f0f0f0; /* Varsayılan açık gri arka plan */
+    background-color: #f0f0f0; 
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
     background-size: cover;
     background-position: center;

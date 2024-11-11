@@ -10,7 +10,7 @@
     <Page id="page" title="{i18n>title}" class="pageBackground">
         <content>
 
-            <!-- Başlık ve Kullanıcı Bilgileri Alanı -->
+            
             <VBox alignItems="Center" class="menuContainer">
                 <HBox class="usernameTimerContainer" alignItems="Center" justifyContent="SpaceBetween">
                     <VBox class="usernameInfo">
@@ -24,7 +24,7 @@
                     <VBox id="timerContainer" class="timerControl" visible="false" />
                 </HBox>
 
-                <!-- Kullanıcı Giriş ve Zorluk Seçimi Alanı -->
+               
                 <VBox class="inputContainer" alignItems="Center">
                     <HBox alignItems="Center" class="spacingHBox">
                         <Text id="username" class="inputLabel" text="Oyuncu:" />
@@ -43,7 +43,7 @@
                     </HBox>
                 </VBox>
 
-                <!-- Oyun Kontrol Butonları -->
+                
                 <HBox justifyContent="Center" class="buttonContainer">
                     <Button
                         id="startbutton"
@@ -78,10 +78,7 @@
                 </HBox>
             </VBox>
 
-            <!-- Kart Alanı -->
-            
-           
-                <!-- Kart Alanı -->
+          
                 
                 <custom:CardContainer
                     id="cardContainer"

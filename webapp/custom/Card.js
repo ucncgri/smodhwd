@@ -91,13 +91,13 @@ function (Control) {
                     .class("smod-ux-card-inner") 
                     .openEnd();
             
-                // Arka yüz (card back)
+              
                 oRM.openStart("div")
                     .class("smod-ux-card-back") 
                     .openEnd();
                 
                 oRM.openStart("img")
-                    .attr("src", oControl.getImageSrc())  // Arka yüz resmi dinamik olarak
+                    .attr("src", oControl.getImageSrc()) 
                     .attr("alt", oControl.getTitle())
                     .openEnd()
                     .close("img");
@@ -109,9 +109,8 @@ function (Control) {
                     .close("div");
             
       
-                oRM.close("div");  // smod-ux-card-back kapat
-            
-                // Ön yüz (card front)
+                oRM.close("div");  
+              
                 oRM.openStart("div")
                     .class("smod-ux-card-front") 
                     .openEnd();
@@ -123,10 +122,10 @@ function (Control) {
                     .close("img");
             
           
-                oRM.close("div");  // smod-ux-card-front kapat
+                oRM.close("div"); 
             
-                oRM.close("div");  // smod-ux-card-inner kapat
-                oRM.close("div");  // smod-ux-card kapat
+                oRM.close("div"); 
+                oRM.close("div");
             }
             
             

@@ -1,10 +1,17 @@
 .smod-ux-card {
+
+   
+    /* Animasyon uygulanacak */
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
     width: 200px;
-    height: 300px;
+    height: 280px;
     overflow: hidden;
     border-radius: 4px;
+    border-top-left-radius: 15px;
     margin: 0.2rem;
     padding: 0.3em;
+   
     box-sizing: border-box;
     gap: 0.3rem;
     display: flex;
@@ -12,11 +19,22 @@
     transition: box-shadow 0.3s ease;
     box-shadow: 0px 3px 5px -3px rgba(0, 0, 0, 0.1);
     perspective: 1000px;
+    border-bottom-left-radius: 18px; 
+    border-top-right-radius: 10px; 
 }
-
+.smod-ux-card:hover {
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2); /* Daha belirgin gölge */
+    transform: translateY(-5px); /* Yüzer efekt ekle */
+    
+}
 .smod-ux-card-active {
     cursor: pointer;
 }
+/* busy state için varsayılan animasyonu gizle */
+.sapUiBusyIndicator {
+    display: none !important;
+}
+
 
 .smod-ux-card-inactive {
     cursor: not-allowed;
@@ -25,6 +43,7 @@
 
 .smod-ux-card:hover {
     box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px); 
 }
 
 
@@ -34,7 +53,18 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    column-gap: 10px;
+    row-gap: 0px;
+    justify-content: center; /* Kartları yatay olarak ortalar */
+    align-items: center; /* Kartları dikey olarak ortalar */
+
+   
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+    box-sizing: border-box;
 }
+
 
 
 .smod-ux-card-inner {
@@ -42,21 +72,66 @@
     width: 100%;
     height: 100%;
     text-align: center;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
+    transition: transform 0.2s;
+    transform-style: preserve-3d;  border-bottom-left-radius: 15px; 
 }
 
+.smod-ux-card-back img {
+    width: 164px;
+    height: 107px;
+    background-color: #f0f0f0; 
+   
+    margin-top: 30px;
+    margin-left: 18px;
+  /* Sadece sol üst köşe yuvarlatılır */
+}
 
-.smod-ux-card-front,
-.smod-ux-card-back {
- 
+.smod-ux-card-title {
+    position: absolute;
+    bottom: 10px; /* Sağ alt köşeye yerleştirir */
+    left: 20px;
+    font-size: 10px;
+    font-weight: bold; /* Yazıyı kalın yapar */
+    font-style: italic; /* Yazıyı italik yapar */
+    color: rgb(4, 3, 3);
+   
+    padding: 5px 5px;
+    border-radius: 5px;
+    text-align: right;
+    margin-right: 15px;
+    margin-bottom: 9px;
+    direction: rtl;
+    margin-left: 86px;
+}
+
+.smod-ux-card-front {
+
+    border-top-left-radius: 15px;
     position: absolute;
     width: 200px;
-    height: 300px;
+    height: 280px;
    backface-visibility : hidden; 
 
     display: flex;
     flex-direction: column;
+    border-top-right-radius: 10px; 
+    background-color: #f0f0f0; /* Varsayılan açık gri arka plan */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+.smod-ux-card-back {
+    border-top-right-radius: 12px;
+    position: absolute;
+    width: 200px;
+    height: 280px;
+   backface-visibility : hidden; 
+
+    display: flex;
+    flex-direction: column;
+background-image: url('https://i.pinimg.com/originals/b3/1c/23/b31c2395c69a5083adb4b77e17625e2d.png');
+    background-color: #f0f0f0; /* Varsayılan açık gri arka plan */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    background-size: cover;
+    background-position: center;
 }
 
 
@@ -69,3 +144,6 @@
     transform: rotateY(180deg); 
 }
 
+.smod-ux-card.show {
+    opacity: 1;
+} 

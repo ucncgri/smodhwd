@@ -1,70 +1,105 @@
-/* Enter your custom styles here */
-
-.gameButton {
-    margin: 5px 0; /* Butonlar arasında boşluk */
-    font-weight: bold; /* Kalın yazı tipi */
-    font-size: 1.1em; /* Daha büyük yazı boyutu */
-    border-radius: 8px; /* Yuvarlatılmış köşeler */
-}
-.buttonContainerMargin {
-    margin-top: 20px;
-}
-/* Timer alanının temel stili */
-.timerControl {
-    margin-left: 10px;
-    font-size: 20px;
-    font-weight: bold;
-    color: green;
-    text-align: center;
-    padding: 10px;
-    border-radius: 5px;
-    background-color: #e0f7fa;
-    border: 2px solid #00796b;
+/* Arka Plan Resmi */
+.pageBackground {
+    background-image: url('https://images.alphacoders.com/603/thumb-1920-603479.png');
+    background-size: cover;
+    background-position: center;
 }
 
-/* Kalan süre kritik seviyeye düştüğünde etkinleşir */
-.timerControl.criticalTime {
-    color: red;
-    animation: pulse 1s infinite;
-    background-color: #ffebee;
-    border-color: #c62828;
-}
-
-
-.usernameTimerContainer {
+/* Menü Alanı */
+.menuContainer {
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     margin-bottom: 20px;
+    height: 200px;
 }
 
-.spacingHBox {
-    margin-bottom: 5px; /* İki HBox arasındaki boşluk, istenilen seviyeye göre ayarlanabilir */
+/* Oyun Bilgisi ve Zamanlayıcı */
+.usernameTimerContainer {
+    width: 100%;
+    justify-content: space-between;
+    padding: 10px;
 }
 
-/* İsteğe bağlı: Text ve Input alanı arasındaki boşluğu azaltmak için */
+/* Timer Stili */
+.timerControl {
+    margin-top: 185px;
+    position: fixed; /* Sayfa kaydırıldıkça sabit kalır */
+    top: 20px; /* Sayfanın üst kısmında 20px mesafede */
+    right: 20px; /* Sayfanın sağ kısmında 20px mesafede */
+    z-index: 1000; /* Diğer öğelerin üstünde görünmesini sağlar */
+    padding: 12px 15px;
+    font-size: 15px;
+    font-weight: bold;
+    color: white; /* Yazı rengi beyaz */
+    background-color: #00796b; /* Başlangıç rengi */
+    border: 2px solid #004d40; /* Kenarlık rengi */
+    border-radius: 10px; /* Yuvarlak köşeler */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Gölgelendirme */
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Arka plan değişiminde animasyon */
+}
+
+.timerControl.criticalTime {
+    background-color: #ff5722; /* Kritik süre için kırmızı */
+    color: white;
+    animation: pulse 1s infinite; /* Kritik zaman için animasyon */
+}
+
+.timerControl.finished {
+    background-color: #388e3c; /* Bittiğinde yeşil */
+    color: white;
+    animation: none; /* Animasyon bittiğinde durur */
+}
+
+/* Etiket ve Giriş Alanları */
 .inputLabel {
-    margin-right: 5px; /* Label ile input/select alanı arasında az bir boşluk */
+    margin-right: 5px;
 }
 
 .usernameText {
     margin-left: 2px;
     font-size: 20px;
     font-weight: bold;
-    color: #000000;
+    color: #000;
 }
 
-.restartbutton{
+/* Oyun Butonları */
+.buttonContainer {
+    margin-top: 15px;
+}
+
+.gameButton {
+    margin: 5px;
+    font-weight: bold;
+    font-size: 1.1em;
+    border-radius: 8px;
+}
+
+.restartbutton {
     margin-left: 10px;
 }
 
+/* Kart Alanı Çerçevesi */
 
+.layoutContainer {
+    width: 700px; /* Ekran genişliğine tam uyum sağlamak için */
+    height: 700px; /* Ekranın tamamını kaplamak için */
+    display: flex;
+    grid-template-rows: 1fr auto; /* Sayfanın üst kısmında kartlar yer alacak, alt kısmında ise diğer öğeler */
+    gap: 10px; }
+
+
+.cardContainerWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Kartlar arasındaki mesafe */
+}
 /* Kritik süre için pulse animasyonu */
 @keyframes pulse {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.1);
-    }
-    100% {
-        transform: scale(1);
-    }
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
 }

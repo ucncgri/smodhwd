@@ -25,6 +25,7 @@ sap.ui.define([
             const oEventBus = sap.ui.getCore().getEventBus();
             oEventBus.subscribe("Card", "Click", this.onBusCardClick, this );
         },
+        
         startTimer: function() {
             this.oTimer.start(30); // 60 saniye örnek başlangıç süresi
         },
@@ -83,7 +84,8 @@ sap.ui.define([
 ,        
      
         onRestartGame: function () {
-           
+            this.oTimer.removeStyleClass("criticalTime"); // Kritik zaman stilini temizle
+            this.oTimer.addStyleClass("defaultTime");
             this.onStartGame(); 
            
         },
@@ -95,6 +97,7 @@ sap.ui.define([
             oView.byId("startbutton").setVisible(false); 
             oView.byId("usernameInput").setVisible(false); 
             oView.byId("timerContainer").setVisible(true); 
+            oView.byId("usershow").setVisible(true);
             oView.byId("pauseResumeButton").setVisible(true); 
             oView.byId("restartbutton").setVisible(true); 
             oView.byId("username").setVisible(false);
@@ -161,12 +164,14 @@ sap.ui.define([
         
             for (let i = 0; i < totalPairs; i++) {
                 const oCard = new com.smod.ux.customcontrol.custom.Card({
+               
                     busy: false,
                  
                     description: "Bu bir Pokémon kartıdır.",
                     enabled: true,
                  
                 });
+                
                 kartlar.push(oCard, oCard.clone()); 
             }
         
@@ -174,12 +179,16 @@ sap.ui.define([
             const karilmisKartlar = this.karistir(kartlar);
         
      
-            karilmisKartlar.forEach(oCard => {
-                oCardContainer.addAggregation("cards", oCard);
-            });
-        
           
-            oCardContainer.setDefaultSpan(defaultSpan);
+    karilmisKartlar.forEach((oCard, index) => {
+        // Kartı ekledikten sonra animasyonla görünür yapma
+        setTimeout(() => {
+            oCard.addStyleClass("show");  // CSS animasyonunu tetikle
+            oCardContainer.addAggregation("cards", oCard);
+        }, index * 250); // Her kart için küçük bir gecikme ekle
+    });
+        
+    oCardContainer.setDefaultSpan(defaultSpan);
             oCardContainer.invalidate(); 
         },
         
@@ -217,8 +226,7 @@ sap.ui.define([
                         this.firstCard.setProperty("isFlipped", true);
                         setTimeout(() => {
                             clickedItem.setProperty("isFlipped", true);
-                        }, 700); 
-            
+                        }, 300); 
                         this.firstCard.isMatched = true;
                         clickedItem.isMatched = true;
             
@@ -267,18 +275,29 @@ sap.ui.define([
                        
                         console.log("Kartlar eşleşmedi! Kapalı olacaklar.");
                         this.openCards.push(this.firstCard, clickedItem);
-                        setTimeout(() => {
+                      
                             if (this.firstCard) {
-                    this.firstCard.$().removeClass("flipped");
+                                  
+                setTimeout(() => {
+                    this.firstCard.$().removeClass("flipped"); // Kartı kapat
+                }, 100)
+                   
                 
                 }
-                            clickedItem.$().removeClass("flipped");
+                
+                setTimeout(() => {
+                    clickedItem.$().removeClass("flipped"); // Kartı kapat
+                }, 300)
                             if (this.firstCard) {
                             this.firstCard.setBusy(false);}
                             clickedItem.setBusy(false);
-                            this.firstCard = null;
-                        }, 1000);
+                            
+                     
                     }
+                    setTimeout(() => {
+                        this.firstCard = null;
+                    }, 100)
+                    
                 } else {
                     
                     this.firstCard = clickedItem;

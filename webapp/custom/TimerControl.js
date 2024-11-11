@@ -14,7 +14,7 @@ sap.ui.define([
         },
 
         init: function() {
-               const sLibraryPath = jQuery.sap.getModulePath("com.smod.ux.customcontrol");
+            const sLibraryPath = jQuery.sap.getModulePath("com.smod.ux.customcontrol");
             jQuery.sap.includeStyleSheet(sLibraryPath + "/css/style.css");
             this._interval = null;
             this._paused = false;
@@ -70,13 +70,24 @@ sap.ui.define([
             }
         },
 
+        // Zamanı dakikalar ve saniyeler olarak formatla
+        formatTime: function(timeInSeconds) {
+            const minutes = Math.floor(timeInSeconds / 60);
+            const seconds = timeInSeconds % 60;
+            return `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+        },
+
         renderer: function(oRM, oControl) {
             oRM.write("<div");
             oRM.writeControlData(oControl);
             oRM.addClass("timerControl");
             oRM.writeClasses();
             oRM.write(">");
-            oRM.writeEscaped("Kalan Süre: " + oControl.getTimeRemaining() + " sn");
+            
+            // Kalan süreyi formatla ve yazdır
+            const formattedTime = oControl.formatTime(oControl.getTimeRemaining());
+            oRM.writeEscaped("Kalan Süre: " + formattedTime);
+            
             oRM.write("</div>");
         }
     });
